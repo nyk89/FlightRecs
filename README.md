@@ -1,4 +1,4 @@
-# FlightRecs#
+# FlightRecs
 
 This program is used to suggest travel destinations based on a users given budget.
 
