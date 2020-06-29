@@ -16,7 +16,10 @@ driver.get("https://skiplagged.com/flights/JFK/2020-07-23/2020-07-30")
 soup = BeautifulSoup(driver.page_source, "lxml")
 
 alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container").find_all("li")
-print(alllist[5].text)
+
+for flight in alllist:
+    print(flight.text)
+
 # print(type(titles)) #> <class 'bs4.element.ResultSet'> (like a list)
 # print(titles[5]) #> <span class="title">Macbeth</span>
 # print(titles[5].text) #> Macbeth
