@@ -1,19 +1,19 @@
 import requests
+from lxml import html
 from bs4 import BeautifulSoup
+from selenium import webdriver
 
 
-origin_code = input("TYPE YOUR AIRPORT CODE HERE:") #origin code
-start_date = input("TYPE YOUR DATE HERE (FORMAT:YYYY-MM-DD):") #flight date
-end_date = input("TYPE YOUR END DATE HERE (FORMAT:YYYY-MM-DD):")
+# origin_code = input("TYPE YOUR AIRPORT CODE HERE:") #origin code
+# start_date = input("TYPE YOUR DATE HERE (FORMAT:YYYY-MM-DD):") #flight date
+# end_date = input("TYPE YOUR END DATE HERE (FORMAT:YYYY-MM-DD):")
+# max_price = input("TYPE YOUR BUDGET HERE:")
 
  # note that the import package command is `bs4`
 
-response = requests.get(f"https://skiplagged.com/flights/{origin_code}/{start_date}/{end_date}")
-response_html = response.text
-
-# soup = BeautifulSoup(response_html)
-
-# titles = soup.find_all("span", "title")
+driver = webdriver.Chrome("/Users/kellylynch/Downloads/chromedriver")
+driver.get("https://skiplagged.com/flights/JFK/2020-07-23/2020-07-30")
+soup = BeautifulSoup(driver.page_source, "lxml")
 
 # print(type(titles)) #> <class 'bs4.element.ResultSet'> (like a list)
 # print(titles[5]) #> <span class="title">Macbeth</span>
