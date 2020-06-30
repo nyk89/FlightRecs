@@ -36,6 +36,10 @@ for price in price_list:
     prices_formatted = prices[-1][-1]
     prices_formatted_2.append(prices_formatted)
 
+combined_d_p = list(zip(destinations, prices_formatted_2))[:20]
+for elements in combined_d_p:
+    print (elements)
+
 driver.quit()
 
 # alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container")
