@@ -1,5 +1,6 @@
 # FlightRecs
-This program is used to suggest travel destinations based on a users given budget.
+This program is used to find the top 20 lowest cost flights from a given origin.  Given the circumstances with COVID-19... we're desperate to go anywhere in our budget!  This app will help identify those locations by scraping skiplagged.com
+
 ## Prerequisites
   + Anaconda 3.7
   + Python 3.7
@@ -20,12 +21,13 @@ pip install bs4
 pip install selenium
 pip install lxml
 ```
+Download the appropriate chromedriver
+```sh
+http://chromedriver.chromium.org/
+```
 ## Use
 Run the program by typing the following into your terminal:
 ```sh
 python flightrecs.py
 ```
-Download the appropriate chromedriver
-```sh
-http://chromedriver.chromium.org/
-```
+Follow the instructions in the commandline.  Note that airport codes must be in capital letters and valid.  If searching for a one way ticket, do not type anything into the end date prompt, simply press enter.
