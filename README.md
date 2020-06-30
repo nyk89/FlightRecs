@@ -1,5 +1,5 @@
 # FlightRecs
-This program is used to find the top 20 lowest cost flights from a given origin.  Given the circumstances with COVID-19... we're desperate to go anywhere in our budget!  This app will help identify those locations by scraping skiplagged.com
+This program is used to find the top 20 lowest cost flights from a given origin.  Given the circumstances with COVID-19... we're desperate to go anywhere on a budget!  This app will help identify those locations by scraping skiplagged.com
 
 ## Prerequisites
   + Anaconda 3.7
