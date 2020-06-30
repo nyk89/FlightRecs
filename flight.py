@@ -6,7 +6,7 @@ from selenium import webdriver
 
 origin_code = input("TYPE YOUR AIRPORT CODE HERE:") #origin code
 start_date = input("TYPE YOUR DATE HERE (FORMAT:YYYY-MM-DD):") #flight date
-end_date = input("TYPE YOUR END DATE HERE OR PRESS ENTER FOR ONE WAY (FORMAT:YYYY-MM-DD):")
+end_date = input("TYPE YOUR END DATE HERE OR PRESS ENTER FOR ONE WAY (FORMAT:YYYY-MM-DD):") #end date
 
  # note that the import package command is `bs4`
 
@@ -19,8 +19,7 @@ soup = BeautifulSoup(driver.page_source, "lxml")
 # price_item = price_list.text
 
 # for flight in alllist:
-#     if price_item <=200:
-#         print(flight.text)
+#   print(flight.text)
 
 alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container")
 
@@ -30,6 +29,7 @@ for destination in destination_list:
     destinations.append(destination.text)
 
 prices = []
+prices_formatted_2 =[]
 price_list = alllist.find_all("div", class_="skipsy-cost")
 for price in price_list:
     prices.append(price.text.split("$"))
