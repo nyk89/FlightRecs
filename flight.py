@@ -32,7 +32,9 @@ for destination in destination_list:
 prices = []
 price_list = alllist.find_all("div", class_="skipsy-cost")
 for price in price_list:
-    prices.append(price.text)
+    prices.append(price.text.split("$"))
+    prices_formatted = prices[-1][-1]
+    prices_formatted_2.append(prices_formatted)
 
 driver.quit()
 
