@@ -4,36 +4,41 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 
-# origin_code = input("TYPE YOUR AIRPORT CODE HERE:") #origin code
-# start_date = input("TYPE YOUR DATE HERE (FORMAT:YYYY-MM-DD):") #flight date
-# end_date = input("TYPE YOUR END DATE HERE (FORMAT:YYYY-MM-DD):")
-# max_price = input("TYPE YOUR BUDGET HERE:")
+origin_code = input("TYPE YOUR AIRPORT CODE HERE:") #origin code
+start_date = input("TYPE YOUR DATE HERE (FORMAT:YYYY-MM-DD):") #flight date
+end_date = input("TYPE YOUR END DATE HERE OR PRESS ENTER FOR ONE WAY (FORMAT:YYYY-MM-DD):")
 
  # note that the import package command is `bs4`
 
 driver = webdriver.Chrome("/Users/kellylynch/Downloads/chromedriver")
-driver.get("https://skiplagged.com/flights/JFK/2020-07-23/2020-07-30")
+driver.get(f"https://skiplagged.com/flights/{origin_code}/{start_date}/{end_date}")
 soup = BeautifulSoup(driver.page_source, "lxml")
 
-alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container").find_all("li")
+# alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container").find_all("li")
+# price_list = alllist.find_all("div", class_="skipsy-cost")
+# price_item = price_list.text
 
-for flight in alllist:
-    print(flight.text)
+# for flight in alllist:
+#     if price_item <=200:
+#         print(flight.text)
 
-# print(type(titles)) #> <class 'bs4.element.ResultSet'> (like a list)
-# print(titles[5]) #> <span class="title">Macbeth</span>
-# print(titles[5].text) #> Macbeth
+alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container")
 
-# booklinks = soup.find_all("li", "booklink")
+destinations = []
+destination_list = alllist.find_all("h2")
+for destination in destination_list:
+    destinations.append(destination.text)
 
-# books = []
-# for list_item in booklinks:
-#     title = list_item.find("span", "title").text #> "Shakespeare's Sonnets"
-#     author = list_item.find("span", "subtitle").text #> "William Shakespeare"
-#     downloads = list_item.find("span", "extra").text #> '830 downloads'
-#     downloads_count = int(downloads.replace(" downloads", "")) #> 830
-#     book = {"title": title, "author": author, "downloads": downloads_count}
-#     print(book)
-#     books.append(book)
+driver.quit()
 
-# print(books[2]["title"]) #> Macbeth
+# alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container")
+# destination_list = alllist.find_all("h2")
+# price_list = alllist.find_all("div", class_="skipsy-cost")
+# for destination in destination_list:
+#     destination_text = destination.text
+#     print(destination_text)
+# for price in price_list:
+#     price_text = price.text
+#     print(price_text)
+
+
