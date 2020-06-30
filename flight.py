@@ -29,6 +29,11 @@ destination_list = alllist.find_all("h2")
 for destination in destination_list:
     destinations.append(destination.text)
 
+prices = []
+price_list = alllist.find_all("div", class_="skipsy-cost")
+for price in price_list:
+    prices.append(price.text)
+
 driver.quit()
 
 # alllist = soup.find("section", id="trip-list-skipsy-wrapper", class_="skipsy-container")
